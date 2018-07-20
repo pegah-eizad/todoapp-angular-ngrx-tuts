@@ -1,4 +1,4 @@
-//import { TodoEffects } from './store/todo/todo.effects';
+import { TodoEffects } from './store/todo/todo.effects';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -29,7 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
     FormsModule,
     NgbModule.forRoot(),
     //StoreModule.forRoot({todos: TodoReducer.TodoReducer}),
-    //EffectsModule.forRoot([TodoEffects])
+    EffectsModule.forRoot([TodoEffects])
   ],
   providers: [
     //TodoService,
