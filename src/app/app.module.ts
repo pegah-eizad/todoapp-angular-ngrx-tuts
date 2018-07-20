@@ -14,7 +14,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EffectsModule } from '@ngrx/effects';
 //import { TodoListItemComponent } from './components/todo/todo-list-item/todo-list-item.component';
 
-//import * as TodoReducer from './store/todo/todo.reducer'
+import * as TodoReducer from './store/todo/todo.reducers';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { EffectsModule } from '@ngrx/effects';
     HttpClientModule,
     FormsModule,
     NgbModule.forRoot(),
-    //StoreModule.forRoot({todos: TodoReducer.TodoReducer}),
+    StoreModule.forRoot({todos: TodoReducer.TodoReducer}),
     EffectsModule.forRoot([TodoEffects])
   ],
   providers: [
