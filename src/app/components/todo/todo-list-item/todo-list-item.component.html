@@ -24,6 +24,17 @@
               <p>{{todo.status }}</p>
             </div>
     </ng-container>
+    <ng-container *ngIf="todo.create || todo.editing">
+      <div class="col-md-3">
+        <input type="text" name="title" id="title" [(ngModel)]="todo.title">
+      </div>
+      <div class="col-md-4">
+        <input type="text" style="width: 100%;" name="description" id="description" [(ngModel)]="todo.description">
+      </div>
+      <div class="col-md-2">
+        <p>{{todo.status }}</p>
+      </div>
+    </ng-container>
     </div>
   </div>
 </div>
