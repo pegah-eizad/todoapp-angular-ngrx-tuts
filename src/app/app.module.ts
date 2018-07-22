@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-//import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
+import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
 //import { TodoDetailsComponent } from './components/todo/todo-details/todo-details.component';
 import { EffectsModule } from '@ngrx/effects';
 //import { TodoListItemComponent } from './components/todo/todo-list-item/todo-list-item.component';
@@ -18,8 +18,8 @@ import * as TodoReducer from './store/todo/todo.reducers';
 
 @NgModule({
   declarations: [
-    AppComponent
-    //TodoListComponent,
+    AppComponent,
+    TodoListComponent
     //TodoDetailsComponent,
     //TodoListItemComponent
   ],
