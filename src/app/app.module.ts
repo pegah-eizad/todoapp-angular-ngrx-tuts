@@ -5,23 +5,21 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 //import { TodoService } from './services/todo.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
 //import { TodoDetailsComponent } from './components/todo/todo-details/todo-details.component';
 import { EffectsModule } from '@ngrx/effects';
-//import { TodoListItemComponent } from './components/todo/todo-list-item/todo-list-item.component';
-
+import { TodoListItemComponent } from './components/todo/todo-list-item/todo-list-item.component';
 import * as TodoReducer from './store/todo/todo.reducers';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoListItemComponent,
     //TodoDetailsComponent,
-    //TodoListItemComponent
+    TodoListItemComponent
   ],
   imports: [
     BrowserModule,
