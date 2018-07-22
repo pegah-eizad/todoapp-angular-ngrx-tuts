@@ -11,21 +11,15 @@
 
   <div class="row">
     <ng-container *ngIf="!todo.create && !todo.editing">
-
             <div class="col-md-3">
-      
               <p>{{todo.title}}</p>
             </div>
-      
             <div class="col-md-2">
-      
               <p>{{todo.description}}</p>
             </div>
-      
             <div class="col-md-2">
               <p>{{todo.date | date}}</p>
             </div>
-      
             <div class="col-md-2">
               <p>{{todo.status }}</p>
             </div>
