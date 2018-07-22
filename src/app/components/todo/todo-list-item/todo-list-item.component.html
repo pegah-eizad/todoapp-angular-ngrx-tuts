@@ -37,10 +37,10 @@
       </ng-container>
       <div class="col-md-3 options" >
         <ng-container *ngIf="!todo.create && !todo.editing">
-            <button class="btn btn-success" *ngIf="todo.status != 'done'" (click)="completeTodo(todo)">
+            <button class="btn btn-success" *ngIf="todo.status != 'done'" (click)="onCompleteTodo(todo)">
                 <i  class="fa fa-check"></i>
               </button>
-          <button class="btn btn-primary" (click)="editTodo(todo)">
+          <button class="btn btn-primary" (click)="onEditTodo(todo)">
                   <i  class="fa fa-pencil"></i>
                 </button>
           <button class="btn btn-danger" (click)="this.deleted.emit(todo);">
@@ -48,12 +48,12 @@
                 </button>
         </ng-container>
         <ng-container *ngIf="todo.create">
-            <button class="btn btn-success" (click)="createTodo(todo)">
+            <button class="btn btn-success" (click)="onCreateTodo(todo)">
                 Create
               </button>
         </ng-container>
         <ng-container *ngIf="todo.editing">
-          <button class="btn btn-primary" (click)="editTodoSubmit(todo)">
+          <button class="btn btn-primary" (click)="onEditTodoSubmit(todo)">
                   Submit
                 </button>
         </ng-container>
