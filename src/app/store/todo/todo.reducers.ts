@@ -24,6 +24,17 @@ export function TodoReducer(state = defaultState, action: Action) {
         case TodoActions.GET_TODOS: {
             return { ...state, loaded: false, loading: true };
         }
+        case TodoActions.CREATE_TODO: {
+            return {
+                ...state,
+                todos: state.todos.map(t => {
+                    if (t._id == action.payload._id) {
+                        t.loading = true;
+                    }
+                    return t
+                })
+            }
+        }
         case TodoActions.GET_TODOS_SUCCESS: {
             return {
                 ...state,
