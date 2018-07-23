@@ -65,5 +65,19 @@ export class TodoEffects {
         })
         .catch(() => of(new TodoActions.DeleteTodoError(action.payload)))
     );
+
+    @Effect()
+    updateTodo$: Observable<Action> = this.actions$.
+    ofType<TodoActions.UpdateTodo>(TodoActions.UPDATE_TODO)
+    .mergeMap(action =>
+      this.http.put(environment.client.base_url + '/api/todos/', action.payload)
+        .map((data: Response) => {
+
+          return new TodoActions.UpdateTodoSuccess({
+            ...action.payload, loading: false, editing: false
+          });
+        })
+        .catch(() => of(new TodoActions.UpdateTodoError(action.payload)))
+    );
   
 }
