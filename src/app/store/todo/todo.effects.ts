@@ -38,5 +38,32 @@ export class TodoEffects {
         })
         .catch(() => of(new TodoActions.GetTodoError()))
     );
+
+    @Effect()
+    createTodo$: Observable<Action> = this.actions$.
+    ofType<TodoActions.CreateTodo>(TodoActions.CREATE_TODO)
+    .mergeMap(action =>
+      this.http.post(environment.client.base_url + '/api/todos', action.payload)
+        .map((data: Response) => {
+          return new TodoActions.CreateTodoSuccess({
+            ...data["data"], loading: false
+          });
+        })
+        .catch(() => of(new TodoActions.CreateTodoError()))
+    );
+
+    @Effect()
+    deleteTodo$: Observable<Action> = this.actions$.
+    ofType<TodoActions.DeleteTodo>(TodoActions.DELETE_TODO)
+    .mergeMap(action =>
+      this.http.delete(environment.client.base_url + '/api/todos/' + action.payload._id)
+        .map((data: Response) => {
+
+          return new TodoActions.DeleteTodoSuccess({
+            ...action.payload, loading: false
+          });
+        })
+        .catch(() => of(new TodoActions.DeleteTodoError(action.payload)))
+    );
   
 }
