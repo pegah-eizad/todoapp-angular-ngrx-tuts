@@ -26,4 +26,21 @@ export class TodoListComponent implements OnInit {
     this.todoListState$ = this.store.select(state => state.todos); 
     this.store.dispatch(new TodoAction.GetTodos());
   }
+
+  onCreate(todo) {
+    console.log(todo)
+    this.store.dispatch(new TodoAction.CreateTodo(todo));
+  }
+
+  onDelete(todo) {
+    this.store.dispatch(new TodoAction.DeleteTodo(todo));
+  }
+
+  onEdit(todo) {
+    this.store.dispatch(new TodoAction.UpdateTodo(todo));
+  }
+
+  completeTodo(todo) {
+    this.store.dispatch(new TodoAction.CompleteTodo(todo));
+  }
 }
