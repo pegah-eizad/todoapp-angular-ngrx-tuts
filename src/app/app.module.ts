@@ -2,7 +2,7 @@ import { TodoEffects } from './store/todo/todo.effects';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-//import { TodoService } from './services/todo.service';
+import { TodoService } from './services/todo.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -30,7 +30,7 @@ import * as TodoReducer from './store/todo/todo.reducers';
     EffectsModule.forRoot([TodoEffects])
   ],
   providers: [
-    //TodoService,
+    TodoService
   ],
   bootstrap: [AppComponent]
 })

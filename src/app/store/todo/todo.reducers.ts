@@ -118,5 +118,20 @@ export function TodoReducer(state = defaultState, action: Action) {
             };
         }
 
+        case TodoActions.COMPLETE_TODO: {
+            return {
+                ...state,
+                todos: state.todos.map(t => {
+                    if (t._id == action.payload._id) {
+                        t.status = "done";
+                    }
+                    return t
+                })
+            };
+        } 
+        default: {
+            return state;
+        }
+        
     }
 }
