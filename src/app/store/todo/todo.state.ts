@@ -1,10 +1,10 @@
 import Todo from '../../models/todo.model';
 
 export interface TodoState extends Todo{
-    loading:boolean;
+    loading: boolean;
     editable: boolean;
     edited: boolean;
-    editing:boolean;
+    editing: boolean;
     selected: boolean;
     refreshing:boolean;
     create: boolean;
