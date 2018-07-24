@@ -35,6 +35,21 @@ export function TodoReducer(state = defaultState, action: Action) {
                 })
             }
         }
+        case TodoActions.CREATE_TODO_SUCCESS: {
+            return {
+                ...state,
+                todos: [
+                    ...state.todos.filter(t => {
+                        return t._id != "new"
+                    }), {
+                        ...action.payload,
+                        edited: true
+                    }, {
+                        ...Todo.generateMockTodo(),
+                        ...initializeTodoState()
+                    }]
+            }
+        }
         case TodoActions.GET_TODOS_SUCCESS: {
             return {
                 ...state,
@@ -44,6 +59,22 @@ export function TodoReducer(state = defaultState, action: Action) {
                 ],
                 loading: false
             };
+        }
+
+        case TodoActions.DELETE_TODO: {
+            return { ...state, ...state.todos.splice(state.todos.indexOf(action.payload), 1) };
+        }
+        case TodoActions.DELETE_TODO_SUCCESS: {
+            return state
+        }
+        case TodoActions.DELETE_TODO_ERROR: {
+            return {
+                ...state,
+                todos: [
+                    ...state.todos,
+                    action.payload
+                ]
+            }
         }
 
     }
