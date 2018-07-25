@@ -1,6 +1,6 @@
 import { Response } from '@angular/http';
-//import { TodoService } from './services/todo.service';
-//import Todo from './models/todo.model';
+import { TodoService } from './services/todo.service';
+import Todo from './models/todo.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,24 +11,24 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   constructor(
-    //private todoService: TodoService
+    private todoService: TodoService
   ) { }
 
-  //public newTodo: Todo = new Todo()
+  public newTodo: Todo = new Todo()
 
-  //todosList: Todo[];
-  //editTodos: Todo[] = [];
+  todosList: Todo[];
+  editTodos: Todo[] = [];
 
   ngOnInit(): void {
-    // this.todoService.getToDos()
-    //   .subscribe(todos => {
-    //     this.todosList = todos
-    //     console.log(todos)
-    //   })
+     this.todoService.getToDos()
+       .subscribe(todos => {
+         this.todosList = todos
+         console.log(todos)
+       })
   }
 
 
-  /*create() {
+  create() {
     this.todoService.createTodo(this.newTodo)
       .subscribe((res) => {
         this.todosList.push(res.data)
@@ -76,6 +76,6 @@ export class AppComponent implements OnInit {
   }
 
 
-  title = 'app';*/
+  title = 'app';
 
 }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   client: {
-    base_url: "http://localhost:4200"
+    base_url: "http://localhost:3000"
   }
 };
 
