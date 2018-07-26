@@ -17,9 +17,8 @@ import * as TodoReducer from './store/todo/todo.reducers';
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoListItemComponent,
-    //TodoDetailsComponent,
     TodoListItemComponent
+    //TodoDetailsComponent,
   ],
   imports: [
     BrowserModule,

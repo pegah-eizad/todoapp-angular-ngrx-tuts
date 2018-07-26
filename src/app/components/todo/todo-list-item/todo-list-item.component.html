@@ -1,43 +1,20 @@
 <div class="card">
-    <div class="card-body" 
-    *ngIf="todo"
-    [class.done]="todo.status == 'done'"
-    [class.selected]="todo.selected"
-    [class.loading]="todo.loading"
-    [class.editing] = "todo.editing"
-    [class.edited] = "todo.edited"
-    [class.error] = "todo.error"
-    >
-
+    <div class="card-body">
     <div class="row">
-      <ng-container *ngIf="!todo.create && !todo.editing">
-              <div class="col-md-3">
-                <p>{{todo.title}}</p>
-              </div>
-              <div class="col-md-2">
-                <p>{{todo.description}}</p>
-              </div>
-              <div class="col-md-2">
-                <p>{{todo.date | date}}</p>
-              </div>
-              <div class="col-md-2">
-                <p>{{todo.status }}</p>
-              </div>
-      </ng-container>
-      <ng-container *ngIf="todo.create || todo.editing">
-        <div class="col-md-3">
+      <div>
+        <div >
           <input type="text" name="title" id="title" [(ngModel)]="todo.title">
         </div>
-        <div class="col-md-4">
+        <div >
           <input type="text" style="width: 100%;" name="description" id="description" [(ngModel)]="todo.description">
         </div>
         <div class="col-md-2">
           <p>{{todo.status }}</p>
         </div>
-      </ng-container>
-      <div class="col-md-3 options" >
-        <ng-container *ngIf="!todo.create && !todo.editing">
-            <button class="btn btn-success" *ngIf="todo.status != 'done'" (click)="onCompleteTodo(todo)">
+      </div>
+      <div class="options" style="">
+        <ng-container>
+            <button class="btn btn-success">
                 <i  class="fa fa-check"></i>
               </button>
           <button class="btn btn-primary" (click)="onEditTodo(todo)">
@@ -47,12 +24,12 @@
                   <i  class="fa fa-trash"></i>
                 </button>
         </ng-container>
-        <ng-container *ngIf="todo.create">
+        <ng-container>
             <button class="btn btn-success" (click)="onCreateTodo(todo)">
                 Create
               </button>
         </ng-container>
-        <ng-container *ngIf="todo.editing">
+        <ng-container>
           <button class="btn btn-primary" (click)="onEditTodoSubmit(todo)">
                   Submit
                 </button>
